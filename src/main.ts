@@ -1,6 +1,11 @@
 import Phaser from 'phaser'
 import {Game} from './scenes/Game'
 import {Preloader} from './scenes/Preloader'
+import './assets/0x72_DungeonTilesetII_v1.4.png'
+import './assets/MakeFacj.json'
+import './assets/Крив.png'
+
+
 
 const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.AUTO,
