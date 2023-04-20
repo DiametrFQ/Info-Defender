@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
-import dung from './../assets/Isometric_MedievalFantasy_Tiles.png'
-import MakeFacj from './../assets/MakeFacj.json'
-import Player from './../assets/Крив.png'
+import dung from './../../assets/Isometric_MedievalFantasy_Tiles.png'
+import MakeFacj from './../../assets/MakeFacj.json'
+import Player from './../../assets/Крив.png'
 
 export class Preloader extends Phaser.Scene{
     constructor(){

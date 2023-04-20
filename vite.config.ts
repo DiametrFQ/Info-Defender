@@ -6,14 +6,6 @@ export default defineConfig({
 			output: {
 				chunkFileNames: 'assets/[name]-[hash].js',
 				entryFileNames: 'assets/[name]-[hash].js',
-				// assetFileNames: (asset) => {
-				// 	console.log(parse(asset.name).name);
-				// 	if (parse(asset.name).name === 'externalImage') {
-				// 		return "images/src/[name][extname]";
-				// 	}
-				// 	return "assets/[name].[hash][extname]";
-				// }
-				
 			},
 		},
 		chunkSizeWarningLimit: 2048,

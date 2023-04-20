@@ -1,11 +1,7 @@
 import Phaser from 'phaser'
 import {Game} from './scenes/Game'
 import {Preloader} from './scenes/Preloader'
-import './assets/0x72_DungeonTilesetII_v1.4.png'
-import './assets/MakeFacj.json'
-import './assets/Крив.png'
-
-
+import './style.scss'
 
 const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.AUTO,
@@ -23,7 +19,7 @@ const config: Phaser.Types.Core.GameConfig = {
 	// scale:{
 	// 	zoom:2
 	// }
-	zoom:2
+	zoom:1.5
 }
 
 export default new Phaser.Game(config)
