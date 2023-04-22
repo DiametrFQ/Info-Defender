@@ -10,6 +10,7 @@ const config: Phaser.Types.Core.GameConfig = {
 	physics: {
 		default: 'arcade',
 		arcade: {
+			//отключить физические границы
 			debug: true,
 			gravity: { y: 0 },
 		},
@@ -17,7 +18,7 @@ const config: Phaser.Types.Core.GameConfig = {
 	// scale:{
 	// 	zoom:2
 	// }
-	zoom:1.5
+	zoom: 1.5
 }
 
 export default new Phaser.Game(config)

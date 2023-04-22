@@ -2,6 +2,8 @@ import Phaser from 'phaser'
 import dung from './../../assets/Isometric_MedievalFantasy_Tiles.png'
 import MakeFacj from './../../assets/MakeFacj.json'
 import Player from './../../assets/Крив.png'
+import wire from './../../assets/wire.png'
+
 
 export class Preloader extends Phaser.Scene{
     constructor(){
@@ -9,6 +11,7 @@ export class Preloader extends Phaser.Scene{
     }
 
     preload(){
+        this.load.image("gaykey", wire)
         this.load.image("tiles", dung)
         this.load.tilemapTiledJSON("fuck", MakeFacj)
         this.load.image('player', Player)
