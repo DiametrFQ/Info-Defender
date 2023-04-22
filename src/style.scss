@@ -1,7 +1,10 @@
 *{
     margin: 0;
-    padding: 0;}
+    padding: 0;
+    background-color: black;
+}
+
 canvas{
     width: 100px;
-    height: 200px;
+    border: 1px solid red;
 }
