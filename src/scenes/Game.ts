@@ -1,3 +1,5 @@
+import Phaser from 'phaser'
+
 interface Icoord{
     x: number,
     y: number
