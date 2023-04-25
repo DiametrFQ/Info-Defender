@@ -39,7 +39,6 @@ export class Game extends Phaser.Scene{
         this.walls = this.map.createLayer('Walls', this.tileSet).setPosition(...coord);
         this.stena = this.map.createLayer('stena', this.tileSet).setPosition(...coord);
 
-
         this.gaykey = this.physics.add.sprite(400, 300, 'gaykey')
         //this.physics.arcade.enable(this.gaykey);
 
@@ -99,8 +98,6 @@ export class Game extends Phaser.Scene{
         // graphics.closePath();
         // graphics.strokePath();
 
-
-
         this.input.on('pointerup', (pointer: Phaser.Input.Pointer) =>
         {
             if (
@@ -127,22 +124,13 @@ export class Game extends Phaser.Scene{
         });
         this.ground.setInteractive();
 
-
-    }
+    }   
         // graphics.lineTo(510, 490);
-        // graphics.lineTo(180, 490);
-        // graphics.lineTo(811, 336);
-        // graphics.lineTo(203, 336);        // graphics.lineTo(510, 490);
-        // graphics.lineTo(180, 490);
-        // graphics.lineTo(811, 336);
-        // graphics.lineTo(203, 336);        // graphics.lineTo(510, 490);
-        // graphics.lineTo(180, 490);
-        // graphics.lineTo(811, 336);
-        // graphics.lineTo(203, 336);        // graphics.lineTo(510, 490);
         // graphics.lineTo(180, 490);
         // graphics.lineTo(811, 336);
         // graphics.lineTo(203, 336);
     update(){
+
         this.ground.active.valueOf()
 
         if(
@@ -151,5 +139,7 @@ export class Game extends Phaser.Scene{
         ){
             this.player.setVelocity(0)
         }
+
+        
     }
 }
