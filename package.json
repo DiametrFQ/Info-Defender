@@ -17,6 +17,10 @@
 	},
 	"dependencies": {
 		"phaser": "^3.55.2",
-		"sass": "^1.62.0"
+		"sass": "^1.62.0",
+		"url": "^0.11.1"
+	},
+	"imports": {
+		"#/*": "./src/objects/*"
 	}
 }
