@@ -1,24 +1,23 @@
-import Phaser from 'phaser'
-import {Game} from './scenes/Game'
-import {Preloader} from './scenes/Preloader'
-import './style.scss'
+import Phaser from "phaser";
+import { Game } from "./scenes/Game";
+import { Preloader } from "./scenes/Preloader";
+import "./style.scss";
 
 const config: Phaser.Types.Core.GameConfig = {
-	type: Phaser.AUTO,
-	parent: 'app',
-	scene: [Preloader, Game],
-	physics: {
-		default: 'arcade',
-		arcade: {
-			//отключить физические границы
-			debug: true,
-			gravity: { y: 0 },
-		},
-	},
-	// scale:{
-	// 	zoom:2
-	// }
-	zoom: 1
-}
+  type: Phaser.AUTO,
+  parent: "app",
+  scene: [Preloader, Game],
+  physics: {
+    default: "arcade",
+    arcade: {
+      //отключить физические границы
+      debug: true,
+      gravity: { y: 0 },
+    },
+  },
+  scale: {
+    zoom: 1.75,
+  },
+};
 
-export default new Phaser.Game(config)
+export default new Phaser.Game(config);

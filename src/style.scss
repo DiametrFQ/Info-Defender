@@ -1,10 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    background-color: black;
+* {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
 }
 
-canvas{
-    max-width: 100%;
-    border: 1px solid red;
+canvas {
+  max-width: 100%;
+  border: 1px solid red;
 }
