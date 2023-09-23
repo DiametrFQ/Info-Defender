@@ -7,6 +7,9 @@ export default class Registaration {
   readonly _inputMail;
   readonly _inputLogin;
   readonly _inputPassword;
+  readonly _inputs;
+  private _activeInput: Inner;
+
   readonly _buttonSave;
   readonly _buttonReg;
 
@@ -17,6 +20,7 @@ export default class Registaration {
     this._inputMail = this.createInput(200, "email");
     this._inputLogin = this.createInput(300, "login");
     this._inputPassword = this.createInput(400, "pas");
+    this._inputs = [this._inputMail, this._inputLogin, this._inputPassword];
     this._buttonSave = this.createButton(500, "log", () => {
       this.destroy();
     });
@@ -27,9 +31,17 @@ export default class Registaration {
     this.scane.input.keyboard.on(
       Phaser.Input.Keyboard.Events.ANY_KEY_DOWN,
       (event: any) => {
-        console.log(event);
+        for (const input of this._inputs) {
+          if (!input._active) {
+            continue;
+          }
+          if (!(this._activeInput === input)) {
+            this._activeInput?.setActive(false);
+            this._activeInput = input;
+          }
+        }
         if (
-          !this._inputMail._active ||
+          !this._activeInput?._active ||
           event.key === "CapsLock" ||
           event.key === "Tab" ||
           event.key === "Shift" ||
@@ -38,21 +50,13 @@ export default class Registaration {
           return;
         }
         if (event.key === "Backspace") {
-          const text = this._inputMail.text.slice(0, -1);
-          this._inputMail.text = text;
+          const text = this._activeInput.text.slice(0, -1);
+          this._activeInput.text = text;
           return;
         }
-        this._inputMail.text = this._inputMail.text + event.key;
+        this._activeInput.text = this._activeInput.text + event.key;
       }
     );
-    //}
-    this.scane.input.keyboard.on(`keydown-delete`, () => {
-      if (this._inputMail._active) {
-        const text = this._inputMail.text;
-        text.slice(0, -1);
-        this._inputMail.text = text;
-      }
-    });
   }
 
   createBack() {

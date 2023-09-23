@@ -9,16 +9,9 @@ export default class Input extends Button {
   ) {
     super(_body, _text);
     this._body.setInteractive();
-    this._body
-      .on("keydown-A", () => {
-        // console.log(this._active);
-        // if (this._active) {
-        this._text.text += "asd";
-        // }
-      })
-      .on("pointerup", () => {
-        this.setActive(true);
-      });
+    this._body.on("pointerup", () => {
+      this.setActive(true);
+    });
   }
 
   public setActive(state: boolean) {
