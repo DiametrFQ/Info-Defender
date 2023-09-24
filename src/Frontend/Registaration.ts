@@ -1,4 +1,4 @@
-import { Game } from "../../scenes/Game";
+import { Game } from "../scenes/Game";
 import Button from "./Button";
 import Inner from "./Input";
 
@@ -9,6 +9,8 @@ export default class Registaration {
   readonly _inputPassword;
   readonly _inputs;
   private _activeInput: Inner;
+  private x: number = 950;
+  private character: [number, number, number] = [200, 50, 0x000000];
 
   readonly _buttonSave;
   readonly _buttonReg;
@@ -60,23 +62,23 @@ export default class Registaration {
   }
 
   createBack() {
-    return this.scane.add.rectangle(500, 350, 900, 600, 0x00ff00);
+    return this.scane.add.rectangle(this.x, 500, 1500, 900, 0x00ff00);
   }
 
   createInput(y: number, text: string) {
-    const reg = this.scane.add.rectangle(500, y, 200, 50, 0x000000);
+    const reg = this.scane.add.rectangle(this.x, y, ...this.character);
 
-    const addText = this.scane.add.text(420, y - 10, text);
+    const addText = this.scane.add.text(this.x - 80, y - 10, text);
     return new Inner(reg, addText);
   }
 
   createButton(y: number, text: string, func: Function) {
     const reg = this.scane.add
-      .rectangle(500, y, 200, 50, 0xff0000)
+      .rectangle(this.x, y, ...this.character)
       .setInteractive()
       .on("pointerup", func);
 
-    const addText = this.scane.add.text(420, y - 10, text);
+    const addText = this.scane.add.text(this.x - 80, y - 10, text);
 
     return new Button(reg, addText);
   }

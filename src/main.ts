@@ -3,21 +3,20 @@ import { Game } from "./scenes/Game";
 import { Preloader } from "./scenes/Preloader";
 import "./style.scss";
 
-const config: Phaser.Types.Core.GameConfig = {
+export default new Phaser.Game({
   type: Phaser.AUTO,
   parent: "app",
   scene: [Preloader, Game],
+  width: 1900,
+  height: 1050,
   physics: {
     default: "arcade",
     arcade: {
       //отключить физические границы
-      debug: true,
       gravity: { y: 0 },
     },
   },
   scale: {
-    zoom: 1.75,
+    zoom: 0.8,
   },
-};
-
-export default new Phaser.Game(config);
+});

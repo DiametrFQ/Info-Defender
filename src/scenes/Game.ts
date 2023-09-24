@@ -1,74 +1,118 @@
 import Phaser from "phaser";
 import Player from "../objects/Player";
-import InGamesTool from "../objects/InGamesTool";
+// import InGamesTool from "../objects/InGamesTool";
 import Timer from "../objects/Timer";
 import GameMap from "../objects/GameMap";
 import Inventory from "../objects/Inventory";
-import Registaration from "../objects/Frontend/Registaration";
+import Registaration from "../Frontend/Registaration";
+import Buble from "../objects/Bubles/Bubles";
+import Quest from "../objects/Quests/Quest";
+import Question2 from "../objects/Quests/Question2";
+import Question3 from "../objects/Quests/Quations3";
 
 export class Game extends Phaser.Scene {
-  private reg: Registaration;
+  // private reg: Registaration;
   private map: GameMap;
-  private player: Player; //Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
+  public player: Player; //Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   private timer: Timer;
-  private tools: InGamesTool[];
+  // private tools: InGamesTool[];
+  private bubles: Buble[];
+  public quests: Quest[];
 
   constructor() {
     super("game");
   }
 
   create() {
-    console.log(this.input);
-    // this.input = new Hand(this);
-    // console.log(this.input)
-    this.map = new GameMap(this.make.tilemap({ key: "fuck" }));
-    this.map.ground.setInteractive();
+    this.map = new GameMap(this.make.tilemap({ key: "map" }));
 
     this.player = new Player(this.physics, new Inventory());
 
     this.map.setCollide(this.physics, this.player);
-    this.player.position(this.map.coord);
 
-    this.tools = [
-      new InGamesTool(
-        [400, 300],
+    this.bubles = [
+      new Buble(
+        [750, 750],
         this.physics,
-        "gaykey",
-        this.add.text(0, 0, ``),
-        this.input,
-        this.player
+        "buble_no_keyboard",
+        this.player,
+        () => {
+          new Buble(
+            [1490, 550],
+            this.physics,
+            "buble_keyboard",
+            this.player,
+            () => {
+              new Buble(
+                [750, 750],
+                this.physics,
+                "buble_no_keyboard",
+                this.player,
+                () => {
+                  this.quests[1].setSprite("QDORAL");
+                }
+              );
+            }
+          );
+
+          new Buble(
+            [1470, 650],
+            this.physics,
+            "buble_HDMI",
+            this.player,
+            () => {}
+          );
+        }
       ),
-      new InGamesTool(
-        [400, 250],
+      new Buble(
+        [910, 520],
         this.physics,
-        "gaykey",
-        this.add.text(0, 0, ``),
-        this.input,
-        this.player
-      ),
-      new InGamesTool(
-        [500, 300],
-        this.physics,
-        "wire",
-        this.add.text(0, 0, ``),
-        this.input,
-        this.player
+        "buble_questions",
+        this.player,
+        () => {
+          new Question3(
+            [760, 500],
+            this,
+            `Сотрудник:"С приходом электриков,\n у меня компьютер стал жить своей жизнью"`,
+            "asdasd"
+          );
+        }
       ),
     ];
-    this.tools.push(
-      new InGamesTool(
-        [600, 300],
-        this.physics,
-        "wire",
-        this.add.text(0, 0, ``),
-        this.input,
-        this.player
-      )
+    this.bubles.push(
+      new Buble([1110, 450], this.physics, "buble_no_mon", this.player, () => {
+        new Question2(
+          [760, 500],
+          this,
+          `Сотрудник: "Вчера всё работало,\n а сегодня монитор не загорается"`,
+          "asdasd"
+        );
+      })
     );
 
-    this.reg = new Registaration(this);
+    this.quests = [
+      new Quest(
+        [100, 200],
+        this,
+        "Мониторы",
+        "У сотрудника не работает монитор.\n Разберись с этим"
+      ),
+      new Quest(
+        [100, 350],
+        this,
+        "Клавиатура",
+        "Программист сломал клавиатуру\n в порыве ярости. \n Принеси ему новую"
+      ),
+      new Quest(
+        [100, 500],
+        this,
+        "Атака?",
+        "На компьютере сотрудника стали\n открываться приложения\n без его ведома.\n Проверь что там"
+      ),
+    ];
+    new Registaration(this);
 
-    const startSeconds = 100;
+    const startSeconds = 1;
     this.timer = new Timer(
       startSeconds,
       this.add.text(0, 0, `Осталось ${startSeconds} секунд`)
