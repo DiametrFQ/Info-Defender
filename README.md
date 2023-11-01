@@ -1,2 +1,2 @@
 # InfoDef
-VK Hack
+Hack
