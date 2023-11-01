@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import Player from "../objects/Player";
-// import InGamesTool from "../objects/InGamesTool";
+import InGamesTool from "../objects/InGamesTool";
 import Timer from "../objects/Timer";
 import GameMap from "../objects/GameMap";
 import Inventory from "../objects/Inventory";
@@ -74,7 +74,16 @@ export class Game extends Phaser.Scene {
             [760, 500],
             this,
             `Сотрудник:"С приходом электриков,\n у меня компьютер стал жить своей жизнью"`,
-            "asdasd"
+            "asdasd",
+            new InGamesTool(
+              [-110, -110],
+              this.physics,
+              "wifi1",
+              this.add.text(1110, 1110, "wifi1"),
+              this.input,
+              this.player
+            ),
+            this.player
           );
         }
       ),
@@ -115,7 +124,7 @@ export class Game extends Phaser.Scene {
     const startSeconds = 1;
     this.timer = new Timer(
       startSeconds,
-      this.add.text(0, 0, `Осталось ${startSeconds} секунд`)
+      this.add.text(0, 0, `Прошло ${startSeconds} секунд`)
     );
     this.timer.setInterval(this.player);
 
@@ -133,5 +142,6 @@ export class Game extends Phaser.Scene {
     this.map.ground.active.valueOf();
 
     this.player.stay();
+    this.player.checkPos();
   }
 }

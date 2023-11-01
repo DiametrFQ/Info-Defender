@@ -17,6 +17,10 @@ import QATAnaquest from "@objects/Quest&Timer&no_active_quest.png";
 import textBlock from "@objects/text_block.png";
 import possibleAnswer from "@objects/possible_answer.png";
 import QDORAL from "@objects/quest_done&active_level.png";
+import wifi1 from "@objects/wi-fi1.png";
+import wifi2 from "@objects/wi-fi2.png";
+import wifi3 from "@objects/wi-fi3.png";
+import wifi4 from "@objects/wi-fi4.png";
 
 export class Preloader extends Phaser.Scene {
   constructor() {
@@ -41,6 +45,10 @@ export class Preloader extends Phaser.Scene {
     this.load.image("textBlock", textBlock);
     this.load.image("possibleAnswer", possibleAnswer);
     this.load.image("QDORAL", QDORAL);
+    this.load.image("wifi1", wifi1);
+    this.load.image("wifi2", wifi2);
+    this.load.image("wifi3", wifi3);
+    this.load.image("wifi4", wifi4);
 
     this.load.tilemapTiledJSON("map", Map3);
   }

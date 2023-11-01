@@ -1,8 +1,13 @@
+import InGamesTool from "./InGamesTool";
 import Inventory from "./Inventory";
 
 export default class Player {
   private stopCoord = { x: 0, y: 0 };
   readonly body: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
+  private check = false;
+  private checkCoord: [number, number];
+  private checkTool: InGamesTool;
+  private afterChecking: Function;
 
   constructor(
     private _physics: Phaser.Physics.Arcade.ArcadePhysics,
@@ -72,5 +77,45 @@ export default class Player {
 
   position(coord: number[]) {
     this.body.setPosition(coord[0], coord[1] + 610);
+  }
+
+  buildCheckPos(
+    checkCoord: [number, number],
+    Tool: InGamesTool,
+    afterChecking: Function
+  ) {
+    this.check = true;
+    this.checkCoord = checkCoord;
+    this.checkTool = Tool;
+    this.afterChecking = afterChecking;
+  }
+
+  checkPos() {
+    if (this.check) {
+      const maxX = Math.max(this.body.x, this.checkCoord[0]);
+      const minX = Math.min(this.body.x, this.checkCoord[0]);
+
+      const maxY = Math.max(this.body.y, this.checkCoord[1]);
+      const minY = Math.min(this.body.y, this.checkCoord[1]);
+
+      const res = Math.sqrt((maxX - minX) ** 2 + (maxY - minY) ** 2);
+      if (res < 500) {
+        this.checkTool.setSprite("wifi1");
+      }
+      if (res < 400) {
+        this.checkTool.setSprite("wifi2");
+      }
+      if (res < 300) {
+        this.checkTool.setSprite("wifi3");
+      }
+      if (res < 200) {
+        this.checkTool.setSprite("wifi4");
+      }
+      if (res < 150) {
+        this.afterChecking();
+        this.check = false;
+        this.checkTool.destroy();
+      }
+    }
   }
 }

@@ -35,4 +35,6 @@ export default class Inventory {
     tool.coord = toolMap.coord;
     this._countTools.set(tool.name, countTools);
   }
+
+  removeTool() {}
 }

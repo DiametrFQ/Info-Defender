@@ -17,7 +17,7 @@ export default class Timer {
   setInterval(player: Player) {
     const timer = setInterval(() => {
       this._seconds++;
-      this.text.text = `Осталось ${this._seconds} секунд`;
+      this.text.text = `Прошло ${this._seconds} секунд`;
       if (!this._seconds) {
         clearInterval(timer);
         player.body.setVelocity(0);
