@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import { Game } from "../../scenes/Game";
 import Answer from "./Answer";
 import Buble from "../Bubles/Bubles";
+import InGamesTool from "../InGamesTool";
 
 export default class Question2 {
   public _description: Phaser.GameObjects.Text;
@@ -10,7 +11,8 @@ export default class Question2 {
     private _coord: [number, number],
     private _scene: Game,
     readonly _text: string,
-    readonly _textDescription: string
+    readonly _textDescription: string,
+    private HDM: InGamesTool
   ) {
     this._beckDescription = this._scene.add.sprite(...this._coord, "textBlock");
     this._beckDescription.displayHeight = 900;
@@ -35,22 +37,6 @@ export default class Question2 {
           this._description.destroy();
 
           new Buble(
-            [1490, 550],
-            this._scene.physics,
-            "buble_keyboard",
-            this._scene.player,
-            () => {
-              new Buble(
-                [750, 750],
-                this._scene.physics,
-                "buble_no_keyboard",
-                this._scene.player,
-                () => {}
-              );
-            }
-          );
-
-          new Buble(
             [1470, 650],
             this._scene.physics,
             "buble_HDMI",
@@ -64,9 +50,9 @@ export default class Question2 {
                 () => {
                   this._scene.quests[0].setSprite("QDORAL");
                 }
-              );
+              ).buildRemoveFromInventoryTool(this.HDM);
             }
-          );
+          ).buildAddInInventoryTool(this.HDM);
         });
       }
     );

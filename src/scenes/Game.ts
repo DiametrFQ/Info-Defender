@@ -30,6 +30,15 @@ export class Game extends Phaser.Scene {
 
     this.map.setCollide(this.physics, this.player);
 
+    const keyboard = new InGamesTool(
+      [-100, -100],
+      this.physics,
+      "keyboard",
+      this.add.text(-110, -110, "wifi1"),
+      this.input,
+      this.player
+    );
+
     this.bubles = [
       new Buble(
         [750, 750],
@@ -51,9 +60,9 @@ export class Game extends Phaser.Scene {
                 () => {
                   this.quests[1].setSprite("QDORAL");
                 }
-              );
+              ).buildRemoveFromInventoryTool(keyboard);
             }
-          );
+          ).buildAddInInventoryTool(keyboard);
 
           new Buble(
             [1470, 650],
@@ -94,7 +103,15 @@ export class Game extends Phaser.Scene {
           [760, 500],
           this,
           `Сотрудник: "Вчера всё работало,\n а сегодня монитор не загорается"`,
-          "asdasd"
+          "asdasd",
+          new InGamesTool(
+            [-100, -100],
+            this.physics,
+            "HDM",
+            this.add.text(-110, -110, "HDM"),
+            this.input,
+            this.player
+          )
         );
       })
     );

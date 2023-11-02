@@ -21,6 +21,8 @@ import wifi1 from "@objects/wi-fi1.png";
 import wifi2 from "@objects/wi-fi2.png";
 import wifi3 from "@objects/wi-fi3.png";
 import wifi4 from "@objects/wi-fi4.png";
+import keyboard from "@objects/keyboard_in_inventory.png";
+import HDM from "@objects/HDM_in_inventory.png";
 
 export class Preloader extends Phaser.Scene {
   constructor() {
@@ -49,6 +51,8 @@ export class Preloader extends Phaser.Scene {
     this.load.image("wifi2", wifi2);
     this.load.image("wifi3", wifi3);
     this.load.image("wifi4", wifi4);
+    this.load.image("keyboard", keyboard);
+    this.load.image("HDM", HDM);
 
     this.load.tilemapTiledJSON("map", Map3);
   }

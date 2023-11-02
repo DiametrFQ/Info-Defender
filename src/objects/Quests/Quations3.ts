@@ -51,11 +51,8 @@ export default class Question3 {
           "buble_wi_fi",
           this._scene.player,
           () => {
-            this.wifi.coord = [1150, 800];
             this.Player.buildCheckPos([1350, 450], this.wifi, () => {
-              console.log("asdasdasd");
-
-              new Buble(
+              const buble = new Buble(
                 [1350, 450],
                 this._scene.physics,
                 "buble_questions",
@@ -97,10 +94,13 @@ Wi-Fi сети. Они создал фальшивую точку доступа
                   );
                   this._scene.quests[2].setSprite("QDORAL");
                 }
-              ).body.displayHeight = 170;
+              );
+              buble.buildRemoveFromInventoryTool(wifi);
+              buble.body.displayHeight = 170;
+              buble.body.displayWidth = 170;
             });
           }
-        );
+        ).buildAddInInventoryTool(wifi);
       });
     };
     const Answer1 = new Answer(

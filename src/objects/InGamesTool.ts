@@ -80,7 +80,10 @@ export default class InGamesTool {
         this.inHand = false;
         this.body.setPosition(...this._coord);
       }
-
+      if (countTools === 0) {
+        toolFromInventory.text = ``;
+        return;
+      }
       toolFromInventory.text = `${countTools}`;
     });
   }

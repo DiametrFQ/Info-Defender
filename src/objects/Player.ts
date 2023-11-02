@@ -114,8 +114,11 @@ export default class Player {
       if (res < 150) {
         this.afterChecking();
         this.check = false;
-        this.checkTool.destroy();
       }
     }
+  }
+
+  getPosition(): [number, number] {
+    return [this.body.x, this.body.y];
   }
 }
