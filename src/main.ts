@@ -12,8 +12,8 @@ export default new Phaser.Game({
   physics: {
     default: "arcade",
     arcade: {
+      // debug: true,
       //отключить физические границы
-      debug: true,
       gravity: { y: 0 },
     },
   },
