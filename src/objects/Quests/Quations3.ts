@@ -22,7 +22,7 @@ export default class Question3 {
     (this._coord[0] -= 0),
       (this._coord[1] -= 280),
       (this._description = this._scene.add.text(
-        this._coord[0] - 100,
+        this._coord[0] - 200,
         this._coord[1],
         this._text,
         {

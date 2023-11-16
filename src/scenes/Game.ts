@@ -100,7 +100,7 @@ export class Game extends Phaser.Scene {
     this.bubles.push(
       new Buble([1110, 450], this.physics, "buble_no_mon", this.player, () => {
         new Question2(
-          [760, 500],
+          [560, 500],
           this,
           `Сотрудник: "Вчера всё работало,\n а сегодня монитор не загорается"`,
           "asdasd",

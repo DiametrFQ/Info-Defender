@@ -20,7 +20,10 @@ export default class Question2 {
     this._description = this._scene.add.text(
       this._coord[0] - 180,
       this._coord[1] - 80,
-      this._text
+      this._text,
+      {
+        color: "#38201c",
+      }
     );
     const Answer1 = new Answer(
       this._scene,

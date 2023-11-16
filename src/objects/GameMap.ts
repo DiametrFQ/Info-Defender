@@ -13,12 +13,12 @@ export default class GameMap {
     this.ground = this.map
       .createLayer("Floor", this._tileSet)
       .setPosition(...this.coord);
-    this._walls = this.map
-      .createLayer("Walls", this._tileSet)
-      .setPosition(...this.coord);
+    // this._walls = this.map
+    //   .createLayer("Walls", this._tileSet)
+    //   .setPosition(...this.coord);
 
-    this._walls.setCollisionByProperty({ collides: true });
-    this._walls.setCollisionBetween(0, 10000);
+    // this._walls.setCollisionByProperty({ collides: true });
+    // this._walls.setCollisionBetween(0, 10000);
   }
 
   setCollide(physics: Phaser.Physics.Arcade.ArcadePhysics, player: Player) {
