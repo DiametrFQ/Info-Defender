@@ -40,15 +40,15 @@ export default class Question2 {
           this._description.destroy();
 
           new Buble(
+            "buble_HDMI",
             [1470, 650],
             this._scene.physics,
-            "buble_HDMI",
             this._scene.player,
             () => {
               new Buble(
+                "buble_no_mon",
                 [1110, 450],
                 this._scene.physics,
-                "buble_no_mon",
                 this._scene.player,
                 () => {
                   this._scene.quests[0].setSprite("QDORAL");

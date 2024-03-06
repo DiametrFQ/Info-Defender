@@ -11,10 +11,9 @@ export default class Buble {
   private nameRemoveTool: InGamesTool;
 
   constructor(
+    readonly name: string,
     private _coord: [number, number],
     private _physics: Phaser.Physics.Arcade.ArcadePhysics,
-
-    readonly name: string,
     // private _globalListener: Phaser.Input.InputPlugin,
     private _player: Player,
     private _func: Function

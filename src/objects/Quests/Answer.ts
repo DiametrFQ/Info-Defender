@@ -1,42 +1,46 @@
 import { Game } from "../../scenes/Game";
 
 export default class Answer {
-  private answer;
-  private answerText;
+  private view;
+  private text;
 
   constructor(
     readonly _scene: Game,
     private _coord: [number, number],
     private _text: string,
-    readonly func: Function
+    readonly consequences: Function
   ) {
-    this.answer = this._scene.add.sprite(...this._coord, "possibleAnswer");
-    this.answerText = this._scene.add.text(
+    this.view = this._scene.add.sprite(...this._coord, "possibleAnswer");
+    this.text = this._scene.add.text(
       this._coord[0] - 160,
       this._coord[1] - 10,
-      `${this._text}`,
-      {
-        color: "#38201c",
-      }
+      this._text,
+      { color: "#38201c" }
     );
-    this.answer.displayHeight = 100;
-    this.answer.displayWidth = 480;
-    this.answer.setInteractive();
-    this.answer.on("pointerup", this.func);
+    this.buildView([100, 480]).buildViewInteractive();
   }
   destroy() {
-    this.answer.destroy();
-    this.answerText.destroy();
+    this.view.destroy();
+    this.text.destroy();
   }
   setText(text: string) {
-    this.answerText.text = text;
+    this.text.text = text;
   }
   setFunc(func: Function) {
-    this.answer.off("pointerup");
-    this.answer.on("pointerup", func);
+    this.view.off("pointerup");
+    this.view.on("pointerup", func);
   }
   setPossition(x: number, y: number) {
-    this.answer.setPosition(x, y);
-    this.answerText.setPosition(x - 160, y - 10);
+    this.view.setPosition(x, y);
+    this.text.setPosition(x - 160, y - 10);
+  }
+  buildView(coord: [number, number]) {
+    this.view.displayHeight = coord[0];
+    this.view.displayWidth = coord[1];
+    return this;
+  }
+  buildViewInteractive() {
+    this.view.setInteractive().on("pointerup", this.consequences);
+    return this;
   }
 }

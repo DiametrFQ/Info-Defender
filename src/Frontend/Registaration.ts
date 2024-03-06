@@ -10,25 +10,20 @@ export default class Registaration {
   readonly _inputs;
   private _activeInput: Inner;
   private x: number = 950;
-  private character: [number, number, number] = [200, 50, 0x000000];
+  // private character: [number, number, number] = [200, 50, 0x000000];
 
   readonly _buttonSave;
   readonly _buttonReg;
 
-  constructor(
-    readonly scane: Game // readonly text: Phaser.GameObjects.Text,
-  ) {
+  constructor(readonly scane: Game) {
     this._back = this.createBack();
     this._inputMail = this.createInput(200, "email");
     this._inputLogin = this.createInput(300, "login");
     this._inputPassword = this.createInput(400, "pas");
     this._inputs = [this._inputMail, this._inputLogin, this._inputPassword];
-    this._buttonSave = this.createButton(500, "log", () => {
-      this.destroy();
-    });
-    this._buttonReg = this.createButton(600, "pas", () => {
-      this.destroy();
-    });
+
+    this._buttonSave = this.createButton(500, "log", () => this.destroy());
+    this._buttonReg = this.createButton(600, "pas", () => this.destroy());
 
     this.scane.input.keyboard.on(
       Phaser.Input.Keyboard.Events.ANY_KEY_DOWN,
@@ -62,23 +57,32 @@ export default class Registaration {
   }
 
   createBack() {
-    return this.scane.add.rectangle(this.x, 500, 1500, 900, 0x00ff00);
+    return this.scane.add.sprite(this.x, 500, "textBlock");
   }
 
   createInput(y: number, text: string) {
-    const reg = this.scane.add.rectangle(this.x, y, ...this.character);
+    const reg = this.scane.add.sprite(this.x, y, "QDORAL"); //this.scane.add.rectangle(this.x, y, ...this.character);
+    reg.scale = 0.15;
+    reg.scaleY = 0.1;
 
-    const addText = this.scane.add.text(this.x - 80, y - 10, text);
+    const addText = this.scane.add.text(this.x - 25, y - 7, text, {
+      color: "black",
+    });
     return new Inner(reg, addText);
   }
 
   createButton(y: number, text: string, func: Function) {
     const reg = this.scane.add
-      .rectangle(this.x, y, ...this.character)
+      .sprite(this.x, y, "QDORAL")
       .setInteractive()
       .on("pointerup", func);
 
-    const addText = this.scane.add.text(this.x - 80, y - 10, text);
+    reg.scale = 0.15;
+    reg.scaleY = 0.1;
+
+    const addText = this.scane.add.text(this.x - 25, y, text, {
+      color: "black",
+    });
 
     return new Button(reg, addText);
   }

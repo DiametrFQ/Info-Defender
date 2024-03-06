@@ -16,6 +16,8 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "include": ["src"]
 }

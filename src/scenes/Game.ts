@@ -9,6 +9,7 @@ import Buble from "../objects/Bubles/Bubles";
 import Quest from "../objects/Quests/Quest";
 import Question2 from "../objects/Quests/Question2";
 import Question3 from "../objects/Quests/Quations3";
+import Levels from "../Frontend/Levels";
 
 export class Game extends Phaser.Scene {
   // private reg: Registaration;
@@ -25,15 +26,13 @@ export class Game extends Phaser.Scene {
 
   create() {
     this.map = new GameMap(this.make.tilemap({ key: "map" }));
-
     this.player = new Player(this.physics, new Inventory());
-
     this.map.setCollide(this.physics, this.player);
 
     const keyboard = new InGamesTool(
+      "keyboard",
       [-100, -100],
       this.physics,
-      "keyboard",
       this.add.text(-110, -110, "wifi1"),
       this.input,
       this.player
@@ -41,21 +40,21 @@ export class Game extends Phaser.Scene {
 
     this.bubles = [
       new Buble(
+        "buble_no_keyboard",
         [750, 750],
         this.physics,
-        "buble_no_keyboard",
         this.player,
         () => {
           new Buble(
+            "buble_keyboard",
             [1490, 550],
             this.physics,
-            "buble_keyboard",
             this.player,
             () => {
               new Buble(
+                "buble_no_keyboard",
                 [750, 750],
                 this.physics,
-                "buble_no_keyboard",
                 this.player,
                 () => {
                   this.quests[1].setSprite("QDORAL");
@@ -65,18 +64,18 @@ export class Game extends Phaser.Scene {
           ).buildAddInInventoryTool(keyboard);
 
           new Buble(
+            "buble_HDMI",
             [1470, 650],
             this.physics,
-            "buble_HDMI",
             this.player,
             () => {}
           );
         }
       ),
       new Buble(
+        "buble_questions",
         [910, 520],
         this.physics,
-        "buble_questions",
         this.player,
         () => {
           new Question3(
@@ -85,9 +84,9 @@ export class Game extends Phaser.Scene {
             `Сотрудник:"С приходом электриков,\n у меня компьютер стал жить своей жизнью"`,
             "asdasd",
             new InGamesTool(
+              "wifi1",
               [-110, -110],
               this.physics,
-              "wifi1",
               this.add.text(1110, 1110, "wifi1"),
               this.input,
               this.player
@@ -98,16 +97,16 @@ export class Game extends Phaser.Scene {
       ),
     ];
     this.bubles.push(
-      new Buble([1110, 450], this.physics, "buble_no_mon", this.player, () => {
+      new Buble("buble_no_mon", [1110, 450], this.physics, this.player, () => {
         new Question2(
           [560, 500],
           this,
           `Сотрудник: "Вчера всё работало,\n а сегодня монитор не загорается"`,
           "asdasd",
           new InGamesTool(
+            "HDM",
             [-100, -100],
             this.physics,
-            "HDM",
             this.add.text(-110, -110, "HDM"),
             this.input,
             this.player
@@ -136,6 +135,7 @@ export class Game extends Phaser.Scene {
         "На компьютере сотрудника стали\n открываться приложения\n без его ведома.\n Проверь что там"
       ),
     ];
+    new Levels(this);
     new Registaration(this);
 
     const startSeconds = 1;

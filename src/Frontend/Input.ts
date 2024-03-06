@@ -4,7 +4,7 @@ import Button from "./Button";
 export default class Input extends Button {
   public _active = false;
   constructor(
-    readonly _body: Phaser.GameObjects.Rectangle, // readonly text: Phaser.GameObjects.Text,
+    readonly _body: Phaser.GameObjects.Sprite, // readonly text: Phaser.GameObjects.Text,
     readonly _text: Phaser.GameObjects.Text
   ) {
     super(_body, _text);

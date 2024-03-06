@@ -7,10 +7,9 @@ export default class InGamesTool {
   private _collide: Phaser.Physics.Arcade.Collider;
 
   constructor(
+    readonly name: string,
     private _coord: [number, number],
     private _physics: Phaser.Physics.Arcade.ArcadePhysics,
-
-    readonly name: string,
     private _text: Phaser.GameObjects.Text,
     private _globalListener: Phaser.Input.InputPlugin,
     private _player: Player
@@ -19,6 +18,7 @@ export default class InGamesTool {
     this.body.setInteractive();
     this.body.scaleX = 0.3;
     this.body.scaleY = 0.3;
+    // this.body.scale = 0.3??
 
     this._globalListener.on("pointermove", (pointer: Phaser.Input.Pointer) => {
       if (this.inHand) {
