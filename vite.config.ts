@@ -22,6 +22,18 @@ export default defineConfig({
         find: "@objects",
         replacement: resolve(__dirname, "./assets/objects/"),
       },
+      {
+        find: "@gameTools",
+        replacement: resolve(__dirname, "./assets/gameTools/"),
+      },
+      {
+        find: "@buble",
+        replacement: resolve(__dirname, "./assets/Bubles/"),
+      },
+      {
+        find: "@ui",
+        replacement: resolve(__dirname, "./assets/UI/"),
+      },
       { find: "#", replacement: resolve(__dirname, "./src/objects/") },
     ],
   },
