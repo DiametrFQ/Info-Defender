@@ -51,7 +51,7 @@ export default class Question2 {
                 this._scene.physics,
                 this._scene.player,
                 () => {
-                  this._scene.quests[0].setSprite("QDORAL");
+                  this._scene.quests[0].done();
                 }
               ).buildRemoveFromInventoryTool(this.HDM);
             }

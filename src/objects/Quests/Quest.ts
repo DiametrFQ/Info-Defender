@@ -5,6 +5,7 @@ export default class Quest {
   public _description: Phaser.GameObjects.Text;
   public _beckDescription: Phaser.GameObjects.Sprite;
   public _sprite;
+  public isDone = false;
 
   private _back;
   constructor(
@@ -35,11 +36,13 @@ export default class Quest {
       this._beckDescription.displayHeight = 200;
       this._beckDescription.displayWidth = 400;
       this._description = this._scene.add.text(
-        this._coord[0] + 100,
-        this._coord[1] - 5,
+        this._coord[0] + 60,
+        this._coord[1] - 50,
         `${_textDescription}`,
         {
           color: "#38201c",
+          fontSize: "23px",
+          fontStyle: "lighter",
         }
       );
     });
@@ -62,5 +65,15 @@ export default class Quest {
       this._coord[1] - 5,
       `${this._text}`
     );
+  }
+
+  done() {
+    this.setSprite("QDORAL");
+    this.isDone = true;
+  }
+
+  destroy() {
+    this._back.destroy();
+    this._sprite.destroy();
   }
 }

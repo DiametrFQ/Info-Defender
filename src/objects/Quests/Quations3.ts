@@ -86,6 +86,7 @@ Wi-Fi сети. Они создал фальшивую точку доступа
                 Answer1.destroy();
                 this._beckDescription.destroy();
                 this._description.destroy();
+                this._scene.quests[2].done();
               };
 
               const Answer1 = new Answer(
@@ -94,7 +95,6 @@ Wi-Fi сети. Они создал фальшивую точку доступа
                 `Теперь всё понятно`,
                 ex
               );
-              this._scene.quests[2].setSprite("QDORAL");
             };
 
             const buble = new Buble(

@@ -1,6 +1,8 @@
 import { Game } from "../scenes/Game";
 import Phaser from "phaser";
 import Button from "./Button";
+import Init1Level from "../scenes/Levels/Init1Level";
+import Init2Level from "../scenes/Levels/Init2Level";
 export default class Levels {
   private x = 950;
   private y = 300;
@@ -13,9 +15,7 @@ export default class Levels {
   private rectangles: Button[] = [];
   constructor(
     readonly scane: Game // readonly text: Phaser.GameObjects.Text,
-  ) {
-    this.init();
-  }
+  ) {}
 
   init() {
     this.textBlock = this.scane.add.sprite(this.x, 500, "textBlock");
@@ -28,8 +28,18 @@ export default class Levels {
     ).on("pointerup", () => {
       this.rectangles.forEach((rec) => rec.destroy());
       this.textBlock.destroy();
+      this.scane.level = 1;
+      Init1Level(this.scane);
     });
-    this.generateLevelRectangle(this.x, this.y, this.passiveHexColor, 2);
+    this.generateLevelRectangle(this.x, this.y, this.activeHexColor, 2).on(
+      "pointerup",
+      () => {
+        this.rectangles.forEach((rec) => rec.destroy());
+        this.textBlock.destroy();
+        this.scane.level = 2;
+        Init2Level(this.scane);
+      }
+    );
     this.generateLevelRectangle(this.x + 450, this.y, this.passiveHexColor, 3);
 
     this.y += 400;

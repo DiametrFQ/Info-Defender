@@ -55,8 +55,8 @@ export default class Player {
     // }
   }
 
-  pointerup(pointer: Phaser.Input.Pointer, seconds: number) {
-    if (this.outOfBounds(pointer) && seconds) {
+  pointerup(pointer: Phaser.Input.Pointer, condition = true) {
+    if (this.outOfBounds(pointer) && condition) {
       this.stopCoord = {
         x: pointer.x,
         y: pointer.y,
