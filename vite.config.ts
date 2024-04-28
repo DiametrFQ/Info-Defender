@@ -7,11 +7,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        chunkFileNames: "assets/name.js",
-        entryFileNames: "assets/name.js",
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
       },
     },
-    chunkSizeWarningLimit: 4096,
+    chunkSizeWarningLimit: 2048,
     assetsInlineLimit: 0,
   },
   plugins: [],
@@ -24,7 +24,7 @@ export default defineConfig({
       },
       {
         find: "@gameTools",
-        replacement: resolve(__dirname, "./assets/gameTools"),
+        replacement: resolve(__dirname, "assets/gameTools/"),
       },
       {
         find: "@buble",
@@ -37,7 +37,14 @@ export default defineConfig({
       { find: "#", replacement: resolve(__dirname, "./src/objects/") },
     ],
   },
-  server: { host: "0.0.0.0", port: 8000 },
+  server: {
+    host: true,
+    port: 3000,
+  },
+  preview: {
+    host: true,
+    port: 3000,
+  },
   clearScreen: false,
   base: "/",
 });
