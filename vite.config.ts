@@ -24,7 +24,7 @@ export default defineConfig({
       },
       {
         find: "@gameTools",
-        replacement: resolve(__dirname, "./assets/gameTools/"),
+        replacement: resolve(__dirname, "assets/gameTools/"),
       },
       {
         find: "@buble",
