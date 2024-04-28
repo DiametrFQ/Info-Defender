@@ -1,4 +1,4 @@
-import wifi1 from "@gameTools/wi-fi1.png";
+import wifi1 from "../../assets/gameTools/wi-fi1.png";
 import wifi2 from "@gameTools/wi-fi2.png";
 import wifi3 from "@gameTools/wi-fi3.png";
 import wifi4 from "@gameTools/wi-fi4.png";
