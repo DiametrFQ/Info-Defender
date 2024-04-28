@@ -11,7 +11,7 @@ import Final from "../Frontend/Final";
 
 export class Game extends Phaser.Scene {
   // private reg: Registaration;
-  private levelNow: number;
+  public levelNow: number;
 
   private map: GameMap;
   public player: Player; //Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;

@@ -1,4 +1,3 @@
-import Registaration from "../../Frontend/Registaration";
 import Buble from "../../objects/Bubles/Bubles";
 import InGamesTool from "../../objects/InGamesTool";
 import Question3 from "../../objects/Quests/Quations3";
