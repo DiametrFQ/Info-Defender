@@ -19,7 +19,6 @@ export default class Levels {
 
   init() {
     this.textBlock = this.scane.add.sprite(this.x, 500, "textBlock");
-
     this.generateLevelRectangle(
       this.x - 450,
       this.y,
@@ -64,5 +63,10 @@ export default class Levels {
 
     this.rectangles.push(btn);
     return rec;
+  }
+
+  setCoord(x: number, y: number) {
+    this.x = x;
+    this.y = y;
   }
 }

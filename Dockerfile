@@ -1,8 +1,11 @@
 FROM node:latest
+
 WORKDIR /app
-EXPOSE 3000:3000
+
+EXPOSE 80:3000
+
 ADD package*.json ./
-RUN npm install --force
+RUN npm ci
 ADD . .
 
-CMD npm run dev -- --host
+CMD npm run dev
