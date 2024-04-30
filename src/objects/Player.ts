@@ -18,6 +18,7 @@ export default class Player {
       .setInteractive();
     this.body.displayWidth = 50;
     this.body.displayHeight = 100;
+    this.body.scale += 1.2;
 
     // this.invenrory = new Inventory(this.add);
   }
@@ -33,7 +34,6 @@ export default class Player {
 
     // Вставить в главный класс Game для проверки границ
     //
-    // const bord = [134.5, -479.5, 437.5, 741.5]
     // const graphics = this.add.graphics()
     // const bord = [174.5, -1009.5, 877.5, 1471.5]
     // for (let j = 0; j < bord.length; j++) {

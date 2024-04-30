@@ -26,3 +26,5 @@ export class Preloader extends Phaser.Scene {
     this.scene.start("game");
   }
 }
+
+//не отображается предметы

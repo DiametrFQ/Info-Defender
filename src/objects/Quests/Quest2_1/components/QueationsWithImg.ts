@@ -18,7 +18,7 @@ export default class QuationsWithImg {
     readonly coordTarget: [number, number],
     private sizeScale: number
   ) {
-    this._back = this.scene.add.sprite(...this.coord, "textBlock");
+    this._back = this.scene.add.sprite(...this.coord, "WinBlock");
     this._back.displayHeight = 900;
     this._back.displayWidth = 1100;
 

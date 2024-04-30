@@ -133,7 +133,7 @@ export default class Quest2_1 {
                 const endGameBack = this._scene.add.sprite(
                   this._coord[0],
                   this._coord[1] + 300,
-                  "textBlock"
+                  "DeadBlock"
                 );
                 endGameBack.displayHeight = 900;
                 endGameBack.displayWidth = 600;

@@ -18,23 +18,21 @@ export default class Levels {
   ) {}
 
   init() {
-    this.textBlock = this.scane.add.sprite(this.x, 500, "textBlock");
+    this.textBlock = this.scane.add.sprite(this.x, 500, "BackMenu");
     this.generateLevelRectangle(
       this.x - 450,
       this.y,
       this.activeHexColor,
       1
     ).on("pointerup", () => {
-      this.rectangles.forEach((rec) => rec.destroy());
-      this.textBlock.destroy();
+      this.destroy();
       this.scane.level = 1;
       Init1Level(this.scane);
     });
     this.generateLevelRectangle(this.x, this.y, this.activeHexColor, 2).on(
       "pointerup",
       () => {
-        this.rectangles.forEach((rec) => rec.destroy());
-        this.textBlock.destroy();
+        this.destroy();
         this.scane.level = 2;
         Init2Level(this.scane);
       }
@@ -68,5 +66,10 @@ export default class Levels {
   setCoord(x: number, y: number) {
     this.x = x;
     this.y = y;
+  }
+
+  destroy() {
+    this.textBlock.destroy();
+    this.rectangles.forEach((rec) => rec.destroy());
   }
 }

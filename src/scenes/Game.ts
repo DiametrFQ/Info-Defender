@@ -3,11 +3,11 @@ import Player from "../objects/Player";
 import Timer from "../objects/Timer";
 import GameMap from "../objects/GameMap";
 import Inventory from "../objects/Inventory";
-import Registaration from "../Frontend/Registaration";
 import Buble from "../objects/Bubles/Bubles";
 import Quest from "../objects/Quests/Quest";
 import Levels from "../Frontend/Levels";
 import Final from "../Frontend/Final";
+import Login from "../Frontend/Login";
 
 export class Game extends Phaser.Scene {
   // private reg: Registaration;
@@ -41,9 +41,9 @@ export class Game extends Phaser.Scene {
     );
     this.timer.setInterval(this.player);
 
-    new Levels(this).init();
-    new Registaration(this);
+    new Login(this);
   }
+
   update() {
     this.map.ground.active.valueOf();
 

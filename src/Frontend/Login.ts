@@ -1,11 +1,11 @@
 import { Game } from "../scenes/Game";
 import Button from "./Button";
 import Inner from "./Input";
-import Login from "./Login";
+import Levels from "./Levels";
+import Registaration from "./Registaration";
 
-export default class Registaration {
+export default class Login {
   readonly _back;
-  readonly _inputMail;
   readonly _inputLogin;
   readonly _inputPassword;
   readonly _inputs;
@@ -18,17 +18,17 @@ export default class Registaration {
 
   constructor(readonly scane: Game) {
     this._back = this.createBack();
-    this._inputMail = this.createInput(200, "email");
     this._inputLogin = this.createInput(300, "login");
     this._inputPassword = this.createInput(400, "pas");
-    this._inputs = [this._inputMail, this._inputLogin, this._inputPassword];
+    this._inputs = [this._inputLogin, this._inputPassword];
 
-    this._buttonSave = this.createButton(500, "sign in", () => {
-      new Login(this.scane);
+    this._buttonSave = this.createButton(500, "segn in", () => {
       this.destroy();
+      new Levels(this.scane).init();
     });
     this._buttonReg = this.createButton(600, "registration", () => {
       this.destroy();
+      new Registaration(this.scane);
     });
 
     this.scane.input.keyboard.on(
@@ -95,7 +95,6 @@ export default class Registaration {
 
   destroy() {
     this._back.destroy();
-    this._inputMail.destroy();
     this._inputLogin.destroy();
     this._inputPassword.destroy();
     this._buttonSave.destroy();

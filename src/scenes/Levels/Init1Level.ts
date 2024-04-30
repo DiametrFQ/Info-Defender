@@ -1,3 +1,4 @@
+import Popup from "../../Frontend/Popup";
 import Buble from "../../objects/Bubles/Bubles";
 import InGamesTool from "../../objects/InGamesTool";
 import Question3 from "../../objects/Quests/Quations3";
@@ -33,18 +34,13 @@ export default function Init1Level(Scene: Game) {
               Scene.physics,
               Scene.player,
               () => {
+                new Popup(Scene, "GoodPlace").init();
                 Scene.quests[1].done();
               }
             ).buildRemoveFromInventoryTool(keyboard);
           }
         ).buildAddInInventoryTool(keyboard);
-        new Buble(
-          "buble_HDMI",
-          [1470, 650],
-          Scene.physics,
-          Scene.player,
-          () => {}
-        );
+        new Popup(Scene, "BadPlace").init();
       }
     )
   );
