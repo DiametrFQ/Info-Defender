@@ -1,6 +1,7 @@
 import { Game } from "../scenes/Game";
 import Button from "./Button";
 import Inner from "./Input";
+
 import Login from "./Login";
 
 export default class Registaration {
@@ -35,7 +36,7 @@ export default class Registaration {
       Phaser.Input.Keyboard.Events.ANY_KEY_DOWN,
       (event: any) => {
         for (const input of this._inputs) {
-          if (!input._active) {
+          if (!input.active) {
             continue;
           }
           if (!(this._activeInput === input)) {
@@ -44,7 +45,7 @@ export default class Registaration {
           }
         }
         if (
-          !this._activeInput?._active ||
+          !this._activeInput?.active ||
           event.key === "CapsLock" ||
           event.key === "Tab" ||
           event.key === "Shift" ||
@@ -86,7 +87,7 @@ export default class Registaration {
     reg.scale = 0.15;
     reg.scaleY = 0.1;
 
-    const addText = this.scane.add.text(this.x - 25, y, text, {
+    const addText = this.scane.add.text(this.x - text.length * 5, y - 7, text, {
       color: "black",
     });
 

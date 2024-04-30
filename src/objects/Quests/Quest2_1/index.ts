@@ -163,6 +163,15 @@ export default class Quest2_1 {
                   this._coord[1] + 600,
                   "textBlock"
                 );
+                const endGameButtonText = this._scene.add.text(
+                  this._coord[0] + 60,
+                  this._coord[1] + 570,
+                  "МЕНЮ",
+                  {
+                    color: "#38201c",
+                    fontSize: "70px",
+                  }
+                );
                 endGameButton.displayHeight = 100;
                 endGameButton.displayWidth = 300;
                 endGameButton.setInteractive();
@@ -177,6 +186,7 @@ export default class Quest2_1 {
                   endGameDescription.destroy();
                   endGameBack.destroy();
                   endGameButton.destroy();
+                  endGameButtonText.destroy();
 
                   this._scene.quests.forEach((quest) => quest.destroy());
 

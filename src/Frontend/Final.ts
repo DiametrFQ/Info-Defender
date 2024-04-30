@@ -48,7 +48,7 @@ export default class Final {
       Phaser.Input.Keyboard.Events.ANY_KEY_DOWN,
       (event: any) => {
         if (
-          !this._activeInput?._active ||
+          !this._activeInput?.active ||
           event.key === "CapsLock" ||
           event.key === "Tab" ||
           event.key === "Shift" ||

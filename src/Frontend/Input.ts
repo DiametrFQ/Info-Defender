@@ -2,20 +2,25 @@ import Phaser from "phaser";
 import Button from "./Button";
 
 export default class Input extends Button {
-  public _active = false;
+  public active = false;
+  private name: string;
   constructor(
-    readonly _body: Phaser.GameObjects.Sprite, // readonly text: Phaser.GameObjects.Text,
+    readonly body: Phaser.GameObjects.Sprite,
     readonly _text: Phaser.GameObjects.Text
   ) {
-    super(_body, _text);
-    this._body.setInteractive();
-    this._body.on("pointerup", () => {
+    super(body, _text);
+    this.name = _text.text;
+    this.body.setInteractive();
+    this.body.on("pointerup", () => {
       this.setActive(true);
+      if (this.text === this.name) {
+        this.text = "";
+      }
     });
   }
 
   public setActive(state: boolean) {
-    this._active = state;
+    this.active = state;
   }
 
   set text(word: string) {
