@@ -4,8 +4,7 @@ WORKDIR /app
 
 EXPOSE 80:3000
 
-ADD package*.json ./
-RUN npm ci
-ADD . .
+COPY . .
+RUN npm i
 
 CMD npm run dev
