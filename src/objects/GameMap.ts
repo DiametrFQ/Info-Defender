@@ -18,7 +18,7 @@ export default class GameMap {
       .setPosition(...this.coord);
 
     this._walls.setCollisionByProperty({ collides: true });
-    this._walls.setCollisionBetween(0, 10000);
+    this._walls.setCollisionBetween(0, 1000);
   }
 
   setCollide(physics: Phaser.Physics.Arcade.ArcadePhysics, player: Player) {
