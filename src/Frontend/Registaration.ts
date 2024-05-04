@@ -1,3 +1,4 @@
+import { exampleReg } from "../https/API";
 import { Game } from "../scenes/Game";
 import Button from "./Button";
 import Inner from "./Input";
@@ -26,9 +27,16 @@ export default class Registaration {
 
     this._buttonSave = this.createButton(500, "sign in", () => {
       new Login(this.scane);
+
       this.destroy();
     });
-    this._buttonReg = this.createButton(600, "registration", () => {
+    this._buttonReg = this.createButton(600, "registration", async () => {
+      const email = this._inputMail.text;
+      const login = this._inputLogin.text;
+      const password = this._inputPassword.text;
+
+      await exampleReg(email, login, password);
+
       this.destroy();
     });
 

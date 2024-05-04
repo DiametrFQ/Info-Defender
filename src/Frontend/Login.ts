@@ -1,3 +1,4 @@
+import { exampleLogin } from "../https/API";
 import { Game } from "../scenes/Game";
 import Button from "./Button";
 import Inner from "./Input";
@@ -22,7 +23,12 @@ export default class Login {
     this._inputPassword = this.createInput(400, "pas");
     this._inputs = [this._inputLogin, this._inputPassword];
 
-    this._buttonSave = this.createButton(500, "segn in", () => {
+    this._buttonSave = this.createButton(500, "segn in", async () => {
+      const login = this._inputLogin.text;
+      const password = this._inputPassword.text;
+
+      await exampleLogin(login, password);
+
       this.destroy();
       new Levels(this.scane).init();
     });
