@@ -35,8 +35,12 @@ export default class Registaration {
       const login = this._inputLogin.text;
       const password = this._inputPassword.text;
 
-      await exampleReg(email, login, password);
-
+      try {
+        await exampleReg(email, login, password);
+      } catch (error) {
+        console.log(error);
+      }
+      new Login(this.scane);
       this.destroy();
     });
 

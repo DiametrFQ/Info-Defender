@@ -27,7 +27,11 @@ export default class Login {
       const login = this._inputLogin.text;
       const password = this._inputPassword.text;
 
-      await exampleLogin(login, password);
+      try {
+        await exampleLogin(login, password);
+      } catch (error) {
+        console.log(error);
+      }
 
       this.destroy();
       new Levels(this.scane).init();
