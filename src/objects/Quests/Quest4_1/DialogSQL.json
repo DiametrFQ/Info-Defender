@@ -3,7 +3,7 @@
     "goodChoises": [
       {
         "choise": " %' and 1=0 union select null,\n table_name from\n information_schema.tables # ",
-        "answer": " Команда позволяет получить метаданные (информация о таблицах, столбцах и др.)"
+        "answer": " Команда позволяет получить метаданные (информация\n о таблицах, столбцах и др.)"
       }
     ],
     "badChoises": [

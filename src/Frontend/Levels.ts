@@ -64,10 +64,20 @@ export default class Levels {
       Init4Level(this.scane);
     });
     this.generateLevelRectangle(this.x, this.y, this.passiveHexColor, 5);
-    this.generateLevelRectangle(this.x + 450, this.y, this.passiveHexColor, 6);
+    this.generateLevelRectangle(
+      this.x + 450,
+      this.y,
+      this.passiveHexColor,
+      "Coming soon"
+    );
   }
 
-  generateLevelRectangle(x: number, y: number, color: number, num: number) {
+  generateLevelRectangle(
+    x: number,
+    y: number,
+    color: number,
+    num: number | string
+  ) {
     const rec = this.scane.add
       .rectangle(x, y, this.weight, 11, this.height, color)
       .setInteractive();
@@ -75,7 +85,14 @@ export default class Levels {
     rec.fillColor = color;
     rec.scaleY = 20;
 
-    const text = this.scane.add.text(x, y, num.toString(), { color: "black" });
+    let text: Phaser.GameObjects.Text;
+    if (typeof num === "number") {
+      text = this.scane.add.text(x, y, num.toString(), { color: "black" });
+    } else {
+      text = this.scane.add.text(x - 100, y, num.toString(), {
+        color: "black",
+      });
+    }
     text.scale = 2;
 
     const btn = new Button(rec, text);

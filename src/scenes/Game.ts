@@ -59,12 +59,12 @@ export class Game extends Phaser.Scene {
 
   nextLevel() {
     if (this.levelIsDone()) {
-      console.log("next level");
       this.quests.forEach((quest) => quest.destroy());
       new Final(this, new Levels(this)).init();
 
       this.quests.length = 0;
-      console.log(this.quests);
+
+      this.player.setPosition(800, 600);
     }
   }
 }

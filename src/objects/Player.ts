@@ -121,4 +121,8 @@ export default class Player {
   getPosition(): [number, number] {
     return [this.body.x, this.body.y];
   }
+
+  setPosition(x: number, y: number) {
+    this.body.setPosition(x, y);
+  }
 }

@@ -5,23 +5,24 @@ import Comparable from "./comparable";
 export default class Matcher {
   private _back: Phaser.GameObjects.Sprite;
   readonly checkButton: Button;
+  readonly text: Phaser.GameObjects.Text;
 
   private garbage: Phaser.GameObjects.Sprite[] = [];
   private rightCoordTargets: [number, number][] = [
-    [600, 200],
-    [600, 400],
-    [600, 600],
+    [550, 350],
+    [550, 550],
+    [550, 750],
   ];
   private leftCoordTargets: [number, number][] = [
-    [1200, 200],
-    [1200, 400],
-    [1200, 600],
+    [1150, 350],
+    [1150, 550],
+    [1150, 750],
   ];
 
   private rightTextTargets: string[] = [
     "XSS инъекция",
     "SQL инъекция",
-    "Code injection",
+    "Command injection",
   ];
   private leftTextTargets: string[] = [
     `SecRule ARGS "@contains <sc" "phase:2\n,log,deny,msg:'Detect try to use\n scriptblock'id:4001" иSecRule ARGS\n "@contains <Sc" "phase:2,log,deny,msg\n:'Detect try to use\n scriptblock'id:4002"`,
@@ -37,9 +38,18 @@ export default class Matcher {
     this._back.displayHeight = 900;
     this._back.displayWidth = 1100;
 
+    this.text = this.scene.add.text(
+      this.coord[0] - 480,
+      this.coord[1] - 400,
+      "Отлично, тестирование на проникновение проведено успешно.\nЗащити инфраструктуру настроив правила фильтрации. Сопоставь тип атаки и правило фильтрации",
+      {
+        color: "#38201c",
+      }
+    );
+
     const button = this.scene.add.sprite(
       coord[0],
-      coord[1] + 300,
+      coord[1] + 400,
       "possibleAnswer"
     );
     button.setInteractive().on("pointerup", () => {
@@ -49,7 +59,7 @@ export default class Matcher {
     button.scale = 0.1;
     this.checkButton = new Button(
       button,
-      this.scene.add.text(coord[0] - 30, coord[1] + 295, "Check", {
+      this.scene.add.text(coord[0] - 30, coord[1] + 395, "Check", {
         color: "#38201c",
       })
     );
@@ -112,6 +122,7 @@ export default class Matcher {
       comparable.destroy();
     });
     this.checkButton.destroy();
+    this.text.destroy();
     this._back.destroy();
   }
 
