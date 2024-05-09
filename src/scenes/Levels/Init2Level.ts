@@ -5,7 +5,7 @@ import { Game } from "../Game";
 
 export default function Init2Level(Scene: Game) {
   Scene.bubles.push(
-    new Buble("buble_no_mon", [1110, 450], Scene.physics, Scene.player, () => {
+    new Buble("azino", [1110, 450], Scene.physics, Scene.player, () => {
       new Quest2_1(
         [560, 500],
         Scene,

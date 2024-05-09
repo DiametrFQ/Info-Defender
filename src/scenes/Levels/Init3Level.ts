@@ -3,14 +3,14 @@ import Quest from "../../objects/Quests/Quest";
 import Quest3_1 from "../../objects/Quests/Quest3_1";
 import { Game } from "../Game";
 
-export default function Init2Level(Scene: Game) {
+export default function Init3Level(Scene: Game) {
   let countDone = { count: 0 };
   Scene.bubles.push(
     new Buble("money2", [1110, 450], Scene.physics, Scene.player, () => {
       new Quest3_1(
         [560, 500],
         Scene,
-        `Сотрудник получил фишинговое письмо на рабочую почту, но проходящий мимо сотрудник помог сберечь данные карты. Настрой антиспам систему, что бы такого больше не было"`,
+        `Сотрудник получил фишинговое\n письмо на рабочую почту, но\n проходящий мимо сотрудник\n помог сберечь данные карты.\n Настрой антиспам систему, что\n бы такого больше не было"`,
         "asdasd",
         0,
         countDone
@@ -20,7 +20,7 @@ export default function Init2Level(Scene: Game) {
       new Quest3_1(
         [560, 500],
         Scene,
-        `Сотрудник получил на\n почту архив, а он оказался с вирусом. Разберись с этим`,
+        `Сотрудник получил на\n почту архив, а он оказался\n с вирусом. Разберись с этим`,
         "asdasd",
         1,
         countDone
@@ -30,7 +30,7 @@ export default function Init2Level(Scene: Game) {
       new Quest3_1(
         [560, 500],
         Scene,
-        `Мы передаём файлы\n друг-другу через флеши,\n для безопасности, а возможно ли настроить защищённый документооборот?`,
+        `Мы передаём файлы друг-другу через флеши,\nдля безопасности, а возможно ли настроить\nзащищённый документооборот?`,
         "asdasd",
         2,
         countDone

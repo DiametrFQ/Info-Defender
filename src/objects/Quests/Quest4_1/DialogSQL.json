@@ -1,0 +1,17 @@
+[
+  {
+    "goodChoises": [
+      {
+        "choise": " %' and 1=0 union select null,\n table_name from\n information_schema.tables # ",
+        "answer": " Команда позволяет получить метаданные (информация о таблицах, столбцах и др.)"
+      }
+    ],
+    "badChoises": [
+      {
+        "choise": " <SCRIPT> alert('hucked')</SCRIPT>",
+        "answer": " Нет это другой тип атаки"
+      }
+    ],
+    "deadChoises": []
+  }
+]

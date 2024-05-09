@@ -74,7 +74,7 @@ export default class Quest2_1 {
                       this._beckDescription.destroy();
 
                       new Buble(
-                        "buble_no_mon",
+                        "azino",
                         [920, 490],
                         this._scene.physics,
                         this._scene.player,
@@ -91,7 +91,7 @@ export default class Quest2_1 {
                       );
 
                       new Buble(
-                        "buble_no_mon",
+                        "azino",
                         [1220, 490],
                         this._scene.physics,
                         this._scene.player,
@@ -108,7 +108,7 @@ export default class Quest2_1 {
                       );
 
                       new Buble(
-                        "buble_no_mon",
+                        "azino",
                         [1120, 560],
                         this._scene.physics,
                         this._scene.player,

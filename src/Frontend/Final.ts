@@ -1,15 +1,14 @@
 import { Game } from "../scenes/Game";
 import Init1Level from "../scenes/Levels/Init1Level";
 import Init2Level from "../scenes/Levels/Init2Level";
+import Init3Level from "../scenes/Levels/Init3Level";
+import Init4Level from "../scenes/Levels/Init4Level";
 import Button from "./Button";
 import Inner from "./Input";
 import Levels from "./Levels";
 
 export default class Final {
   private _back: Phaser.GameObjects.Sprite;
-  //   readonly _inputLogin;
-  //   readonly _inputPassword;
-  //   readonly _inputs;
 
   private _nextButton: Button;
   private _menuButton: Button;
@@ -18,12 +17,7 @@ export default class Final {
   private x: number = 950;
   private y: number = 850;
 
-  private levels = [Init1Level, Init2Level];
-
-  // private character: [number, number, number] = [200, 50, 0x000000];
-
-  //   readonly _buttonSave;
-  //   readonly _buttonReg;
+  private levels = [Init1Level, Init2Level, Init3Level, Init4Level];
 
   constructor(readonly scane: Game, readonly _menuBlock: Levels) {}
 
