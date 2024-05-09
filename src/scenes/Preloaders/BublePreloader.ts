@@ -4,6 +4,9 @@ import buble_mon from "@buble/buble_mon.png";
 import buble_no_keyboard from "@buble/buble_no_keyboard.png";
 import buble_questions from "@buble/buble_questions.png";
 import buble_wi_fi from "@buble/buble_wi-fi.png";
+import money2 from "@buble/money2.png";
+import papers from "@buble/papers.png";
+import virus from "@buble/virus.png";
 
 export default function PreloadBubles(scene: Phaser.Scene) {
   scene.load.image("buble_HDMI", buble_HDMI);
@@ -12,4 +15,8 @@ export default function PreloadBubles(scene: Phaser.Scene) {
   scene.load.image("buble_no_keyboard", buble_no_keyboard);
   scene.load.image("buble_questions", buble_questions);
   scene.load.image("buble_wi_fi", buble_wi_fi);
+
+  scene.load.image("money2", money2);
+  scene.load.image("papers", papers);
+  scene.load.image("virus", virus);
 }

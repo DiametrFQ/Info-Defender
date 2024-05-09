@@ -4,7 +4,7 @@ import Answer from "../Answer";
 import Buble from "../../Bubles/Bubles";
 import dialogsJSON from "./dialogs.json";
 import QuationsWithImg from "./components/QueationsWithImg";
-import Levels from "../../../Frontend/Levels";
+import endGame from "../../../Frontend/EndGameGenerator";
 
 export default class Quest2_1 {
   private _description: Phaser.GameObjects.Text;
@@ -130,70 +130,14 @@ export default class Quest2_1 {
                   getNewAnswers();
                 }
               } else if (keyChoisesTyped == "deadChoises") {
-                const endGameBack = this._scene.add.sprite(
-                  this._coord[0],
-                  this._coord[1] + 300,
-                  "DeadBlock"
+                endGame(
+                  this._coord,
+                  this._scene,
+                  choise,
+                  this._description,
+                  this._beckDescription,
+                  answers
                 );
-                endGameBack.displayHeight = 900;
-                endGameBack.displayWidth = 600;
-
-                const endGameText = this._scene.add.text(
-                  this._coord[0] - 150,
-                  this._coord[1],
-                  "Конец игры",
-                  {
-                    color: "#38201c",
-                    fontSize: "50px",
-                  }
-                );
-
-                const endGameDescription = this._scene.add.text(
-                  this._coord[0] - 250,
-                  this._coord[1] + 150,
-                  choise.answer,
-                  {
-                    color: "#38201c",
-                    fontSize: "26px",
-                  }
-                );
-
-                const endGameButton = this._scene.add.sprite(
-                  this._coord[0] + 140,
-                  this._coord[1] + 600,
-                  "textBlock"
-                );
-                const endGameButtonText = this._scene.add.text(
-                  this._coord[0] + 60,
-                  this._coord[1] + 570,
-                  "МЕНЮ",
-                  {
-                    color: "#38201c",
-                    fontSize: "70px",
-                  }
-                );
-                endGameButton.displayHeight = 100;
-                endGameButton.displayWidth = 300;
-                endGameButton.setInteractive();
-
-                endGameButton.on("pointerup", () => {
-                  answers.forEach((answer) => answer.destroy());
-
-                  this._description.destroy();
-                  this._beckDescription.destroy();
-
-                  endGameText.destroy();
-                  endGameDescription.destroy();
-                  endGameBack.destroy();
-                  endGameButton.destroy();
-                  endGameButtonText.destroy();
-
-                  this._scene.quests.forEach((quest) => quest.destroy());
-
-                  new Levels(this._scene).init();
-                });
-
-                // endGameText
               }
               answer.destroy();
             };

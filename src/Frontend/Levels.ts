@@ -3,6 +3,8 @@ import Phaser from "phaser";
 import Button from "./Button";
 import Init1Level from "../scenes/Levels/Init1Level";
 import Init2Level from "../scenes/Levels/Init2Level";
+import Init3Level from "../scenes/Levels/Init3Level";
+
 export default class Levels {
   private x = 950;
   private y = 300;
@@ -37,7 +39,16 @@ export default class Levels {
         Init2Level(this.scane);
       }
     );
-    this.generateLevelRectangle(this.x + 450, this.y, this.passiveHexColor, 3);
+    this.generateLevelRectangle(
+      this.x + 450,
+      this.y,
+      this.activeHexColor,
+      3
+    ).on("pointerup", () => {
+      this.destroy();
+      this.scane.level = 2;
+      Init3Level(this.scane);
+    });
 
     this.y += 400;
 
