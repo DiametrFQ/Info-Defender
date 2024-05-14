@@ -50,10 +50,6 @@ export default class Quest4_1 {
   }
 
   init() {
-    new Matcher(
-      this._coord.map((c) => c + 300) as [number, number],
-      this._scene
-    );
     const answers: Answer[] = [];
 
     const generatorDialogs = () => {
