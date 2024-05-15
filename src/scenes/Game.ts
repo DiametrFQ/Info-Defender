@@ -64,7 +64,7 @@ export class Game extends Phaser.Scene {
 
       this.quests.length = 0;
 
-      this.player.setPosition(800, 600);
+      this.player.setPosition(400, 700);
     }
   }
 }

@@ -14,7 +14,7 @@ export default class Player {
     readonly invenrory: Inventory
   ) {
     this.body = this._physics.add
-      .sprite(800, 600, "IMGPlayer")
+      .sprite(400, 700, "IMGPlayer")
       .setInteractive();
     this.body.displayWidth = 50;
     this.body.displayHeight = 100;
